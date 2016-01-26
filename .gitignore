@@ -210,3 +210,5 @@ FakesAssemblies/
 GeneratedArtifacts/
 _Pvt_Extensions/
 ModelManifest.xml
+/Tomato.Lovelife/Package.StoreAssociation.xml
+/Tomato.Lovelife/ApplicationInsights.config
