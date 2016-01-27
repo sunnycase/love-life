@@ -123,11 +123,42 @@
 
     <Style x:Key="SectionTitleBorderStyle" TargetType="Border">
         <Setter Property="BorderBrush" Value="{ThemeResource SystemControlBackgroundAccentBrush}"/>
-        <Setter Property="BorderThickness" Value="0,0,0,1"/>
-        <Setter Property="Padding" Value="0,0,10,0"/>
+        <Setter Property="BorderThickness" Value="0,0,0,2"/>
+        <Setter Property="Padding" Value="0,0,10,3"/>
     </Style>
     <Style x:Key="SectionTitleTextStyle" TargetType="TextBlock">
-        <Setter Property="FontSize" Value="18"/>
+        <Setter Property="FontSize" Value="20"/>
         <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundAccentBrush}"/>
+    </Style>
+
+    <Style x:Key="FieldValueTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Margin" Value="15,0,5,0"/>
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundAccentBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="FieldValueTextBoxStyle" TargetType="TextBox">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Margin" Value="15,1,5,1"/>
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundAccentBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="FieldValueComboBoxStyle" TargetType="ComboBox">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="Margin" Value="15,1,5,1"/>
+        <Setter Property="Foreground" Value="{ThemeResource SystemControlForegroundAccentBrush}"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+    </Style>
+
+    <Style x:Key="FieldCaptionTextStyle" TargetType="TextBlock" BasedOn="{StaticResource BaseTextBlockStyle}">
+        <Setter Property="FontSize" Value="15"/>
+        <Setter Property="FontWeight" Value="Normal"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="Margin" Value="0,5"/>
     </Style>
 </ResourceDictionary>

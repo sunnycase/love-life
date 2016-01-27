@@ -1,0 +1,70 @@
+﻿<UserControl
+    x:Class="Tomato.Lovelife.Views.Activities.ScoreMatchView"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Tomato.Lovelife.Views.Activities"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d"
+    d:DesignHeight="674.312"
+    d:DesignWidth="400">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <TextBlock Style="{StaticResource FieldCaptionTextStyle}" x:Uid="Name">Name</TextBlock>
+        <TextBlock Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+        <TextBlock x:Uid="EndTime" Grid.Row="1" Style="{StaticResource FieldCaptionTextStyle}">End Time</TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+        <TextBlock x:Uid="RestTime" Grid.Row="2" Style="{StaticResource FieldCaptionTextStyle}">Rest Time</TextBlock>
+        <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.RestTime,Mode=OneWay}"/>
+        <TextBlock x:Uid="WastedLPPerDay" Grid.Row="3" Style="{StaticResource FieldCaptionTextStyle}">Wasted LP Per day</TextBlock>
+        <TextBox Grid.Row="3" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}" Text="{x:Bind ViewModel.WastedLP,Mode=TwoWay}"/>
+
+        <TextBlock x:Uid="Difficulty" Grid.Row="4" Style="{StaticResource FieldCaptionTextStyle}">Difficulty</TextBlock>
+        <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}" 
+                  ItemsSource="{x:Bind ViewModel.Activity.AvailableDifficulty}" SelectedItem="{x:Bind ViewModel.Difficulty, Mode=TwoWay}"/>
+        <TextBlock x:Uid="Rank" Grid.Row="5" Style="{StaticResource FieldCaptionTextStyle}">Rank</TextBlock>
+        <ComboBox Grid.Row="5" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}"
+                  ItemsSource="{x:Bind ViewModel.AvailableRanks}" SelectedItem="{x:Bind ViewModel.Rank, Mode=TwoWay}"/>
+        <TextBlock x:Uid="Position" Grid.Row="6" Style="{StaticResource FieldCaptionTextStyle}">Position</TextBlock>
+        <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}"/>
+        <TextBlock x:Uid="Goalpts" Grid.Row="7" Style="{StaticResource FieldCaptionTextStyle}">Goal pts</TextBlock>
+        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBlock x:Uid="Nowpts" Grid.Row="8" Style="{StaticResource FieldCaptionTextStyle}">Now pts</TextBlock>
+        <TextBox Grid.Row="8" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBlock x:Uid="NowLP" Grid.Row="9" Style="{StaticResource FieldCaptionTextStyle}">Now LP</TextBlock>
+        <TextBox Grid.Row="9" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBlock x:Uid="NowLevel" Grid.Row="10" Style="{StaticResource FieldCaptionTextStyle}">Now Level</TextBlock>
+        <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBlock x:Uid="NowExp" Grid.Row="11" Style="{StaticResource FieldCaptionTextStyle}">Now Exp</TextBlock>
+        <TextBox Grid.Row="11" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+
+        <Border Grid.Row="13" Margin="10" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="0,1,0,0"/>
+        <Button Grid.Row="12" Margin="0,10" HorizontalAlignment="Center" x:Uid="Calculate" Grid.ColumnSpan="2">Calculate</Button>
+
+        <TextBlock x:Uid="lovecaNeeded" Grid.Row="14" Style="{StaticResource FieldCaptionTextStyle}">♥ Needed</TextBlock>
+        <TextBlock Grid.Row="14" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+        <TextBlock x:Uid="GameTime" Grid.Row="15" Style="{StaticResource FieldCaptionTextStyle}">Game Time</TextBlock>
+        <TextBlock Grid.Row="15" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+    </Grid>
+</UserControl>

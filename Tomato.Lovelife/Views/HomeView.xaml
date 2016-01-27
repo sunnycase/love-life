@@ -5,15 +5,65 @@
     xmlns:local="using:Tomato.Lovelife.Views"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:converters="using:Tomato.Uwp.Mvvm.Converters"
+    xmlns:cal="using:Caliburn.Micro"
     mc:Ignorable="d">
+    <Page.Resources>
+        <cal:BooleanToVisibilityConverter x:Key="BooleanToVisibilityConverter"/>
+    </Page.Resources>
     <VariableSizedWrapGrid>
         <Grid>
             <Grid.RowDefinitions>
                 <RowDefinition Height="Auto"/>
                 <RowDefinition Height="*"/>
             </Grid.RowDefinitions>
-            <Border Style="{StaticResource SectionTitleBorderStyle}">
+            <Border Style="{StaticResource SectionTitleBorderStyle}"
+                    Tapped="{x:Bind ViewModel.NavigateToActivities}">
                 <TextBlock x:Uid="Activities" Style="{StaticResource SectionTitleTextStyle}">Activities</TextBlock>
+            </Border>
+            <Grid Grid.Row="1" Margin="5" Visibility="{x:Bind ViewModel.ShowActivity, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                    <RowDefinition Height="Auto"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="*"/>
+                </Grid.ColumnDefinitions>
+                <TextBlock Style="{StaticResource FieldCaptionTextStyle}" x:Uid="Name">Name</TextBlock>
+                <TextBlock Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+                <TextBlock x:Uid="EndTime" Grid.Row="1" Style="{StaticResource FieldCaptionTextStyle}">End Time</TextBlock>
+                <TextBlock Grid.Row="1" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+                <TextBlock x:Uid="RestTime" Grid.Row="2" Style="{StaticResource FieldCaptionTextStyle}">Rest Time</TextBlock>
+                <TextBlock Grid.Row="2" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+
+                <TextBlock x:Uid="Goalpts" Grid.Row="3" Style="{StaticResource FieldCaptionTextStyle}">Goal pts</TextBlock>
+                <TextBlock Grid.Row="3" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+                <TextBlock x:Uid="Nowpts" Grid.Row="4" Style="{StaticResource FieldCaptionTextStyle}">Now pts</TextBlock>
+                <TextBlock Grid.Row="4" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+                <TextBlock x:Uid="lovecaNeeded" Grid.Row="5" Style="{StaticResource FieldCaptionTextStyle}">♥ Needed</TextBlock>
+                <TextBlock Grid.Row="5" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+                <TextBlock x:Uid="GameTime" Grid.Row="6" Style="{StaticResource FieldCaptionTextStyle}">Game Time</TextBlock>
+                <TextBlock Grid.Row="6" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+            </Grid>
+
+            <Border Grid.Row="1" Margin="20,20" Visibility="{x:Bind ViewModel.ShowActivityConfiguration, Mode=OneWay, Converter={StaticResource BooleanToVisibilityConverter}}"
+                    Tapped="{x:Bind ViewModel.NavigateToActivities}">
+                <StackPanel Orientation="Horizontal">
+                    <Grid>
+                        <Ellipse Width="28" Height="28" Stroke="{ThemeResource SystemControlBackgroundAccentBrush}"/>
+                        <SymbolIcon Symbol="Setting" VerticalAlignment="Center" Foreground="{ThemeResource SystemControlBackgroundAccentBrush}" HorizontalAlignment="Center"/>
+                    </Grid>
+                    <TextBlock VerticalAlignment="Center" Margin="5" FontWeight="Normal"
+                               x:Uid="ConfigureActivity"
+                               Foreground="{ThemeResource SystemControlForegroundAccentBrush}">Configure Activity</TextBlock>
+                </StackPanel>
             </Border>
         </Grid>
     </VariableSizedWrapGrid>

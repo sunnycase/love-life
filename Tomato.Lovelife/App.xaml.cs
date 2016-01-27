@@ -70,6 +70,7 @@ namespace Tomato.Lovelife
             _container.RegisterWinRTServices();
 
             _container.UseShell();
+            _container.UseApplets();
             _eventAggregator = _container.GetInstance<IEventAggregator>();
         }
 

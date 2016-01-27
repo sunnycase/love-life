@@ -14,6 +14,8 @@ namespace Tomato.Lovelife
         public static void UseShell(this SimpleContainer container)
         {
             container.PerRequest<MainViewModel>();
+            container.PerRequest<HomeViewModel>();
+            container.PerRequest<ActivitiesViewModel>();
             container.Instance(ResourceLoader.GetForCurrentView());
         }
 

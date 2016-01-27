@@ -13,6 +13,13 @@ namespace Tomato.Lovelife.ViewModels
     {
         private Frame _navigationService;
 
+        public static MainViewModel Current { get; private set; }
+
+        public MainViewModel()
+        {
+            Current = this;
+        }
+
         public void SetupNavigationService(object sender, object e)
         {
             _navigationService = (Frame)sender;
@@ -22,6 +29,11 @@ namespace Tomato.Lovelife.ViewModels
         public void NavigateToHome()
         {
             _navigationService?.Navigate(typeof(HomeView));
+        }
+
+        public void NavigateToActivities()
+        {
+            _navigationService?.Navigate(typeof(ActivitiesView));
         }
 
         public void NavigateToSettings()

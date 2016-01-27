@@ -123,10 +123,64 @@
   <data name="AppName" xml:space="preserve">
     <value>love♥life</value>
   </data>
+  <data name="ConfigureActivity.Text" xml:space="preserve">
+    <value>Configure Activity</value>
+  </data>
+  <data name="EndTime.Text" xml:space="preserve">
+    <value>End Time</value>
+  </data>
+  <data name="GameTime.Text" xml:space="preserve">
+    <value>Game Time</value>
+  </data>
+  <data name="Goalpts.Text" xml:space="preserve">
+    <value>Goal pts</value>
+  </data>
   <data name="Home.Text" xml:space="preserve">
     <value>Home</value>
   </data>
+  <data name="lovecaNeeded.Text" xml:space="preserve">
+    <value>♥ Needed</value>
+  </data>
+  <data name="Name.Text" xml:space="preserve">
+    <value>Name</value>
+  </data>
+  <data name="Nowpts.Text" xml:space="preserve">
+    <value>Now pts</value>
+  </data>
+  <data name="RestTime.Text" xml:space="preserve">
+    <value>Rest Time</value>
+  </data>
   <data name="Settings.Text" xml:space="preserve">
     <value>Settings</value>
+  </data>
+  <data name="ActivitiesCurrent.Header" xml:space="preserve">
+    <value>Current</value>
+  </data>
+  <data name="ActivitiesInMemory.Header" xml:space="preserve">
+    <value>In Memory</value>
+  </data>
+  <data name="Calculate.Content" xml:space="preserve">
+    <value>Calculate</value>
+  </data>
+  <data name="Difficulty.Text" xml:space="preserve">
+    <value>Difficulty</value>
+  </data>
+  <data name="NowExp.Text" xml:space="preserve">
+    <value>Now Exp</value>
+  </data>
+  <data name="NowLevel.Text" xml:space="preserve">
+    <value>Now Level</value>
+  </data>
+  <data name="NowLP.Text" xml:space="preserve">
+    <value>Now LP</value>
+  </data>
+  <data name="Position.Text" xml:space="preserve">
+    <value>Position</value>
+  </data>
+  <data name="Rank.Text" xml:space="preserve">
+    <value>Rank</value>
+  </data>
+  <data name="WastedLPPerDay.Text" xml:space="preserve">
+    <value>Wasted LP Per day</value>
   </data>
 </root>
