@@ -5,11 +5,21 @@
     xmlns:local="using:Tomato.Lovelife.Views.Activities"
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:primitives="using:Tomato.Lovelife.Primitives"
+    xmlns:localConverters="using:Tomato.Lovelife.Converters"
     mc:Ignorable="d"
     d:DesignHeight="674.312"
     d:DesignWidth="400">
+    <UserControl.Resources>
+        <localConverters:NoopConverter x:Key="NoopConverter"/>
+        <localConverters:PositionKindToTextConverter x:Key="PositionKindToTextConverter"/>
+    </UserControl.Resources>
     <Grid>
         <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
@@ -42,29 +52,44 @@
 
         <TextBlock x:Uid="Difficulty" Grid.Row="4" Style="{StaticResource FieldCaptionTextStyle}">Difficulty</TextBlock>
         <ComboBox Grid.Row="4" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}" 
-                  ItemsSource="{x:Bind ViewModel.Activity.AvailableDifficulty}" SelectedItem="{x:Bind ViewModel.Difficulty, Mode=TwoWay}"/>
+                  ItemsSource="{x:Bind ViewModel.Activity.AvailableDifficulty}" SelectedItem="{x:Bind ViewModel.Difficulty, Converter={StaticResource NoopConverter}, Mode=TwoWay}"/>
         <TextBlock x:Uid="Rank" Grid.Row="5" Style="{StaticResource FieldCaptionTextStyle}">Rank</TextBlock>
         <ComboBox Grid.Row="5" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}"
-                  ItemsSource="{x:Bind ViewModel.AvailableRanks}" SelectedItem="{x:Bind ViewModel.Rank, Mode=TwoWay}"/>
+                  ItemsSource="{x:Bind ViewModel.AvailableRanks}" SelectedItem="{x:Bind ViewModel.Rank, Converter={StaticResource NoopConverter}, Mode=TwoWay}"/>
         <TextBlock x:Uid="Position" Grid.Row="6" Style="{StaticResource FieldCaptionTextStyle}">Position</TextBlock>
-        <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}"/>
+        <ComboBox Grid.Row="6" Grid.Column="1" Style="{StaticResource FieldValueComboBoxStyle}" ItemsSource="{x:Bind ViewModel.AvailablePositions}"
+                  SelectedItem="{x:Bind ViewModel.Position, Converter={StaticResource NoopConverter}, Mode=TwoWay}">
+            <ComboBox.ItemTemplate>
+                <DataTemplate>
+                    <TextBlock Text="{Binding Converter={StaticResource PositionKindToTextConverter}}"/>
+                </DataTemplate>
+            </ComboBox.ItemTemplate>
+        </ComboBox>
         <TextBlock x:Uid="Goalpts" Grid.Row="7" Style="{StaticResource FieldCaptionTextStyle}">Goal pts</TextBlock>
-        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}" Text="{x:Bind ViewModel.Goalpts, Mode=TwoWay}"/>
         <TextBlock x:Uid="Nowpts" Grid.Row="8" Style="{StaticResource FieldCaptionTextStyle}">Now pts</TextBlock>
-        <TextBox Grid.Row="8" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBox Grid.Row="8" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}" Text="{x:Bind ViewModel.Nowpts, Mode=TwoWay}"/>
         <TextBlock x:Uid="NowLP" Grid.Row="9" Style="{StaticResource FieldCaptionTextStyle}">Now LP</TextBlock>
-        <TextBox Grid.Row="9" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBox Grid.Row="9" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}" Text="{x:Bind ViewModel.NowLP, Mode=TwoWay}"/>
         <TextBlock x:Uid="NowLevel" Grid.Row="10" Style="{StaticResource FieldCaptionTextStyle}">Now Level</TextBlock>
-        <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBox Grid.Row="10" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}" Text="{x:Bind ViewModel.NowLevel, Mode=TwoWay}"/>
         <TextBlock x:Uid="NowExp" Grid.Row="11" Style="{StaticResource FieldCaptionTextStyle}">Now Exp</TextBlock>
-        <TextBox Grid.Row="11" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}"/>
+        <TextBox Grid.Row="11" Grid.Column="1" Style="{StaticResource FieldValueTextBoxStyle}" Text="{x:Bind ViewModel.NowExp, Mode=TwoWay}"/>
 
         <Border Grid.Row="13" Margin="10" Grid.ColumnSpan="2" BorderBrush="Gray" BorderThickness="0,1,0,0"/>
-        <Button Grid.Row="12" Margin="0,10" HorizontalAlignment="Center" x:Uid="Calculate" Grid.ColumnSpan="2">Calculate</Button>
+        <Button Grid.Row="12" Margin="0,10" HorizontalAlignment="Center" x:Uid="Calculate" Grid.ColumnSpan="2" Click="{x:Bind ViewModel.Calculate}">Calculate</Button>
 
         <TextBlock x:Uid="lovecaNeeded" Grid.Row="14" Style="{StaticResource FieldCaptionTextStyle}">♥ Needed</TextBlock>
-        <TextBlock Grid.Row="14" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+        <TextBlock Grid.Row="14" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.Result.LovecaNeeded, Mode=OneWay}"/>
         <TextBlock x:Uid="GameTime" Grid.Row="15" Style="{StaticResource FieldCaptionTextStyle}">Game Time</TextBlock>
-        <TextBlock Grid.Row="15" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}"/>
+        <TextBlock Grid.Row="15" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.Result.GameTime, Mode=OneWay}"/>
+        <TextBlock x:Uid="SMTimes" Grid.Row="16" Style="{StaticResource FieldCaptionTextStyle}">Score Match Times</TextBlock>
+        <TextBlock Grid.Row="16" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.Result.ScoreMatchTimes, Mode=OneWay}"/>
+        <TextBlock x:Uid="FinalLevel" Grid.Row="17" Style="{StaticResource FieldCaptionTextStyle}">Final Level</TextBlock>
+        <TextBlock Grid.Row="17" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.Result.FinalLevel, Mode=OneWay}"/>
+        <TextBlock x:Uid="FinalExp" Grid.Row="18" Style="{StaticResource FieldCaptionTextStyle}">Final Exp</TextBlock>
+        <TextBlock Grid.Row="18" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.Result.FinalExp, Mode=OneWay}"/>
+        <TextBlock x:Uid="Finalpts" Grid.Row="19" Style="{StaticResource FieldCaptionTextStyle}">Final pts</TextBlock>
+        <TextBlock Grid.Row="19" Grid.Column="1" Style="{StaticResource FieldValueTextStyle}" Text="{x:Bind ViewModel.Result.Finalpts, Mode=OneWay}"/>
     </Grid>
 </UserControl>

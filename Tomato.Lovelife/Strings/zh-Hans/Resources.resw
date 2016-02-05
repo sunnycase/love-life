@@ -183,4 +183,31 @@
   <data name="WastedLPPerDay.Text" xml:space="preserve">
     <value>每天浪费的LP</value>
   </data>
+  <data name="PositionKind.Average" xml:space="preserve">
+    <value>1~4位平均</value>
+  </data>
+  <data name="PositionKind.Four" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="PositionKind.One" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="PositionKind.Three" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="PositionKind.Two" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="SMTimes.Text" xml:space="preserve">
+    <value>Score Match 次数</value>
+  </data>
+  <data name="FinalExp.Text" xml:space="preserve">
+    <value>最终经验</value>
+  </data>
+  <data name="FinalLevel.Text" xml:space="preserve">
+    <value>最终等级</value>
+  </data>
+  <data name="Finalpts.Text" xml:space="preserve">
+    <value>最终 pts</value>
+  </data>
 </root>

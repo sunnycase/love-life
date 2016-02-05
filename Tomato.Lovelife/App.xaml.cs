@@ -43,8 +43,8 @@ namespace Tomato.Lovelife
                 Microsoft.ApplicationInsights.WindowsCollectors.Session |
                 Microsoft.ApplicationInsights.WindowsCollectors.PageView |
                 Microsoft.ApplicationInsights.WindowsCollectors.UnhandledException);
-            TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
-            this.UnhandledException += App_UnhandledException;
+            //TaskScheduler.UnobservedTaskException += TaskScheduler_UnobservedTaskException;
+            //this.UnhandledException += App_UnhandledException;
             this.InitializeComponent();
         }
 

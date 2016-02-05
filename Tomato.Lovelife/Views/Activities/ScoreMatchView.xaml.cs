@@ -25,7 +25,7 @@ namespace Tomato.Lovelife.Views.Activities
 
         public ScoreMatchView(ScoreMatchActivity activity)
         {
-            ViewModel = new ScoreMatchViewModel(activity);
+            ViewModel = new ScoreMatchViewModel(activity, Constants.CurrentProfileId);
             this.InitializeComponent();
         }
     }

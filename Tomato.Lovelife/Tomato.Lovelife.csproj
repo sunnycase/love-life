@@ -99,6 +99,8 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Converters\PositionKindToTextConverter.cs" />
+    <Compile Include="Converters\NoopConverter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ShellModule.cs" />
     <Compile Include="ViewModels\ActivitiesViewModel.cs" />

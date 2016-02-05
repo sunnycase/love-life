@@ -110,10 +110,13 @@
     <Compile Include="Constants.cs" />
     <Compile Include="Primitives\DifficultyKind.cs" />
     <Compile Include="Primitives\IActivity.cs" />
+    <Compile Include="Primitives\PositionKind.cs" />
     <Compile Include="Primitives\RankKind.cs" />
     <Compile Include="Primitives\ScoreMatchActivity.cs" />
+    <Compile Include="Primitives\ScoreMatchActivityComputeResult.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\IActivitiesManager.cs" />
+    <Compile Include="Services\IActivityComputer.cs" />
     <EmbeddedResource Include="Properties\Tomato.Lovelife.Core.rd.xml" />
   </ItemGroup>
   <ItemGroup />

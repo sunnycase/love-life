@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Caliburn.Micro;
 using Tomato.Lovelife.Applets.Services;
+using Tomato.Lovelife.Primitives;
 using Tomato.Lovelife.Services;
 using Windows.ApplicationModel.Resources;
 
@@ -15,6 +16,7 @@ namespace Tomato.Lovelife
         public static void UseApplets(this SimpleContainer container)
         {
             container.Singleton<IActivitiesManager, ActivitiesManager>();
+            container.Singleton<IActivityComputer<ScoreMatchActivityComputeParam, ScoreMatchActivityComputeResult>, ScoreMatchActivityComputer>();
         }
     }
 }

@@ -183,4 +183,31 @@
   <data name="WastedLPPerDay.Text" xml:space="preserve">
     <value>Wasted LP Per day</value>
   </data>
+  <data name="PositionKind.Average" xml:space="preserve">
+    <value>1st~4th Average</value>
+  </data>
+  <data name="PositionKind.Four" xml:space="preserve">
+    <value>4th</value>
+  </data>
+  <data name="PositionKind.One" xml:space="preserve">
+    <value>1st</value>
+  </data>
+  <data name="PositionKind.Three" xml:space="preserve">
+    <value>3rd</value>
+  </data>
+  <data name="PositionKind.Two" xml:space="preserve">
+    <value>2nd</value>
+  </data>
+  <data name="SMTimes.Text" xml:space="preserve">
+    <value>Score Match Times</value>
+  </data>
+  <data name="FinalExp.Text" xml:space="preserve">
+    <value>Final Exp</value>
+  </data>
+  <data name="FinalLevel.Text" xml:space="preserve">
+    <value>Final Level</value>
+  </data>
+  <data name="Finalpts.Text" xml:space="preserve">
+    <value>Final pts</value>
+  </data>
 </root>
